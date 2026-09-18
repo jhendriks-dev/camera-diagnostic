@@ -44,9 +44,6 @@
             border-color: #0284c7;
             background-color: #f0f7ff;
         }
-        .badge-glow {
-            box-shadow: 0 0 15px rgba(2, 132, 199, 0.25);
-        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
@@ -60,7 +57,6 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg text-white leading-tight">Camera & Tripod Skills Assessment</h1>
-                    <p class="text-xs text-slate-400">UK Media Production Standard (25 fps PAL / Canon DSLR Setup)</p>
                 </div>
             </div>
             <div class="flex items-center space-x-3">
@@ -73,80 +69,9 @@
                         <div id="progress-bar-fill" class="bg-sky-500 h-full w-0 transition-all duration-300"></div>
                     </div>
                 </div>
-                <!-- GSheet Settings Toggle Button -->
-                <button onclick="toggleSettingsModal()" title="Google Sheets Setup" class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white p-2.5 rounded-xl transition border border-slate-700 flex items-center justify-center">
-                    <i class="fa-solid fa-gear text-sm"></i>
-                </button>
             </div>
         </div>
     </header>
-
-    <!-- Google Sheets Settings Modal -->
-    <div id="settings-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-table text-emerald-400"></i>
-                    Google Sheet Integration
-                </h3>
-                <button onclick="toggleSettingsModal()" class="text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            <p class="text-xs text-slate-400 mb-4">
-                To link your sheet (<span class="text-sky-400 font-mono text-[11px]">1fHhTtag...eG4s</span>), deploy a Google Apps Script Web App and paste its <code class="text-amber-300">script.google.com</code> URL below.
-            </p>
-            <div class="mb-4">
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Apps Script Web App URL</label>
-                <input type="url" id="gsheet-url-input" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500">
-                <p id="gsheet-url-warning" class="hidden text-xs text-amber-400 mt-2 flex items-start gap-1.5 bg-amber-950/40 p-2.5 rounded-lg border border-amber-500/30">
-                    <i class="fa-solid fa-triangle-exclamation text-sm mt-0.5"></i>
-                    <span>Please enter the <strong>Apps Script Web App URL</strong> (starts with <em>script.google.com</em>), not the spreadsheet edit link. See guide below.</span>
-                </p>
-            </div>
-
-            <!-- Apps Script Helper Code Collapsible -->
-            <details class="bg-slate-900 border border-slate-700/80 rounded-xl p-3 mb-4 text-xs text-slate-300">
-                <summary class="font-semibold text-sky-400 cursor-pointer flex items-center justify-between">
-                    <span><i class="fa-solid fa-code mr-1.5"></i> Setup Guide & Script Code</span>
-                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                </summary>
-                <div class="mt-3 pt-2 border-t border-slate-800 space-y-2.5 text-slate-400">
-                    <p>1. Open your Google Sheet, click <strong>Extensions &gt; Apps Script</strong>.</p>
-                    <p>2. Delete any existing code and paste this snippet:</p>
-                    <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-400 overflow-x-auto select-all border border-slate-800 leading-normal">function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    data.timestamp,
-    data.date,
-    data.studentName,
-    data.studentGroup,
-    data.score,
-    data.totalQuestions,
-    data.percentage + '%',
-    data.attainmentLevel,
-    data.certId,
-    data.domain1,
-    data.domain2,
-    data.domain3,
-    data.domain4,
-    data.domain5
-  ]);
-  return ContentService.createTextOutput("Success");
-}</pre>
-                    <p>3. Click <strong>Deploy &gt; New deployment</strong>.</p>
-                    <p>4. Select <strong>Web App</strong>, set <em>Who has access</em> to <strong>"Anyone"</strong>, click <strong>Deploy</strong>.</p>
-                    <p>5. Copy the <strong>Web App URL</strong> and paste it into the field above.</p>
-                </div>
-            </details>
-
-            <div class="flex justify-end gap-3">
-                <button onclick="toggleSettingsModal()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl text-xs font-semibold text-slate-300">Cancel</button>
-                <button onclick="saveGSheetUrl()" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 rounded-xl text-xs font-semibold text-white shadow-lg shadow-sky-600/30">Save URL</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Main Content Container -->
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
@@ -159,7 +84,7 @@
             </div>
             <h2 class="text-3xl font-extrabold text-white mb-3">Camera & Tripod Operational Assessment</h2>
             <p class="text-slate-300 text-base mb-6 leading-relaxed">
-                This diagnostic evaluates your practical understanding of mounting and levelling Manfrotto tripods, operating Canon DSLR controls (such as the 1200D), and mastering the exposure triangle according to UK broadcast video standards (25 fps).
+                This diagnostic evaluates your practical understanding of mounting and levelling Manfrotto tripods, operating Canon DSLR controls, and mastering the exposure triangle according to video production standards.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -169,9 +94,9 @@
                     <p class="text-xs text-slate-400">Multiple choice spanning 5 core technical domains.</p>
                 </div>
                 <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
-                    <i class="fa-solid fa-video text-sky-400 text-xl mb-2"></i>
-                    <h3 class="font-semibold text-white text-sm">UK Broadcast Standard</h3>
-                    <p class="text-xs text-slate-400">Configured for 25 fps PAL & 180° shutter rules.</p>
+                    <i class="fa-solid fa-clock text-sky-400 text-xl mb-2"></i>
+                    <h3 class="font-semibold text-white text-sm">Time Tracked</h3>
+                    <p class="text-xs text-slate-400">Completion time recorded automatically upon submission.</p>
                 </div>
                 <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
                     <i class="fa-solid fa-file-image text-sky-400 text-xl mb-2"></i>
@@ -186,10 +111,10 @@
                     <input type="text" id="student-name" required placeholder="e.g. Alex Smith" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition">
                 </div>
                 <div>
-                    <label for="student-group" class="block text-sm font-medium text-slate-300 mb-1">Group / Class Code (Optional)</label>
-                    <input type="text" id="student-group" placeholder="e.g. Year 12 Media Group A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition">
+                    <label for="student-group" class="block text-sm font-medium text-slate-300 mb-1">Group / Class Code <span class="text-sky-400">*</span></label>
+                    <input type="text" id="student-group" required placeholder="e.g. Year 12 Media Group A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition">
                 </div>
-                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-600/30">
+                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-600/30 cursor-pointer">
                     <span>Begin Assessment</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -213,29 +138,17 @@
 
             <!-- Options Container -->
             <div id="options-container" class="space-y-3 mb-6">
-                <!-- Dynamically populated options -->
-            </div>
-
-            <!-- Feedback Alert -->
-            <div id="feedback-box" class="hidden p-4 rounded-xl mb-6 text-sm flex items-start space-x-3">
-                <i id="feedback-icon" class="fa-solid text-lg mt-0.5"></i>
-                <div>
-                    <h4 id="feedback-title" class="font-bold mb-1">Feedback Title</h4>
-                    <p id="feedback-text" class="text-slate-300 leading-relaxed"></p>
-                </div>
+                <!-- Dynamically populated options A-E -->
             </div>
 
             <!-- Controls -->
-            <div class="flex justify-between items-center pt-2">
+            <div class="flex justify-between items-center pt-2 border-t border-slate-700/50">
                 <button id="prev-btn" onclick="previousQuestion()" class="hidden px-5 py-2.5 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
                     <i class="fa-solid fa-chevron-left mr-1.5"></i> Previous
                 </button>
                 <div class="ml-auto">
-                    <button id="submit-btn" onclick="checkAnswer()" disabled class="px-6 py-2.5 rounded-xl bg-slate-700 text-slate-400 font-bold transition text-sm cursor-not-allowed">
-                        Confirm Selection
-                    </button>
-                    <button id="next-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition text-sm shadow-md">
-                        Next Question <i class="fa-solid fa-chevron-right ml-1.5"></i>
+                    <button id="confirm-next-btn" onclick="confirmAndNext()" disabled class="px-6 py-2.5 rounded-xl bg-slate-700 text-slate-400 font-bold transition text-sm cursor-not-allowed">
+                        Confirm & Next <i class="fa-solid fa-chevron-right ml-1.5"></i>
                     </button>
                 </div>
             </div>
@@ -250,7 +163,6 @@
                     <i id="gsheet-status-icon" class="fa-solid fa-spinner fa-spin text-sm"></i>
                     <span id="gsheet-status-text">Submitting diagnostic results to Google Sheet...</span>
                 </div>
-                <button onclick="toggleSettingsModal()" class="text-[11px] underline opacity-80 hover:opacity-100">Settings</button>
             </div>
 
             <!-- Printable / High-Res PNG Container -->
@@ -267,11 +179,12 @@
                             <span>Official Assessment Transcript</span>
                         </div>
                         <h2 class="text-3xl font-black text-white tracking-tight">Camera & Tripod Competency</h2>
-                        <p class="text-sm text-slate-400 mt-1">Issued for UK Media Production & Broadcast Photography Standards</p>
+                        <p class="text-sm text-slate-400 mt-1">Issued for Media Production & Camera Operational Standards</p>
                     </div>
                     <div class="text-left sm:text-right bg-slate-800/80 px-4 py-3 rounded-xl border border-slate-700/60">
                         <p id="cert-date" class="text-xs text-slate-400">Date: --/--/----</p>
-                        <p id="cert-group" class="text-xs text-slate-300 font-medium">Group: Standard</p>
+                        <p id="cert-group" class="text-xs text-slate-300 font-medium">Class / ID: Standard</p>
+                        <p id="cert-time-spent" class="text-xs text-sky-400 font-medium mt-1"><i class="fa-solid fa-stopwatch mr-1"></i> Time Spent: --</p>
                     </div>
                 </div>
 
@@ -289,8 +202,7 @@
                     </div>
 
                     <div id="grade-badge-box" class="bg-gradient-to-br from-sky-900/40 to-slate-800 border border-sky-500/30 rounded-xl p-5 flex flex-col items-center justify-center text-center">
-                        <span class="text-xs uppercase tracking-wider text-sky-300 font-semibold mb-1">Attainment Level</span>
-                        <div id="cert-grade-title" class="text-xl font-bold text-white mb-1">Proficient</div>
+                        <div id="cert-grade-title" class="text-2xl font-black mb-1">Emerging Knowledge</div>
                         <div id="cert-grade-score" class="text-xs text-slate-300">0 of 30 Correct</div>
                     </div>
                 </div>
@@ -307,12 +219,12 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-xs text-slate-500">
-                    <span>UK Educational Media Standard • 25 fps PAL Standard</span>
+                    <span>Educational Media Standard</span>
                     <span>Verification ID: <span id="cert-id" class="font-mono text-slate-400">CAM-00000</span></span>
                 </div>
             </div>
 
-            <!-- YouTube Learning Recommendations (Visible on screen, removed from downloadable PNG) -->
+            <!-- YouTube Learning Recommendations -->
             <div id="youtube-recommendations-section" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl">
@@ -331,11 +243,11 @@
 
             <!-- Download & Restart Actions -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
-                <button id="download-png-btn" onclick="downloadCertificatePNG()" class="w-full sm:w-auto bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 px-8 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-600/30">
+                <button id="download-png-btn" onclick="downloadCertificatePNG()" class="w-full sm:w-auto bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 px-8 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-600/30 cursor-pointer">
                     <i class="fa-solid fa-file-image"></i>
                     <span id="download-btn-text">Download PNG Certificate</span>
                 </button>
-                <button onclick="restartDiagnostic()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-bold py-3.5 px-8 rounded-xl transition flex items-center justify-center space-x-2">
+                <button onclick="restartDiagnostic()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-bold py-3.5 px-8 rounded-xl transition flex items-center justify-center space-x-2 cursor-pointer">
                     <i class="fa-solid fa-rotate-right"></i>
                     <span>Retake Assessment</span>
                 </button>
@@ -357,38 +269,7 @@
         const DEFAULT_GSHEET_URL = "https://script.google.com/macros/s/AKfycbwDDaNhMXqWhjRCyWzhqs2VnKOUZ_85grderfQ7w0uoJ1HN9S3RFn1NTSiwBI9E13hQ/exec";
 
         function getGSheetUrl() {
-            return localStorage.getItem('camera_diag_gsheet_url') || DEFAULT_GSHEET_URL;
-        }
-
-        function toggleSettingsModal() {
-            const modal = document.getElementById('settings-modal');
-            const input = document.getElementById('gsheet-url-input');
-            if (modal.classList.contains('hidden')) {
-                input.value = getGSheetUrl();
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
-        }
-
-        function saveGSheetUrl() {
-            const input = document.getElementById('gsheet-url-input').value.trim();
-            const warning = document.getElementById('gsheet-url-warning');
-            
-            // Check if user accidentally pasted standard spreadsheet link
-            if (input.includes('docs.google.com/spreadsheets')) {
-                warning.classList.remove('hidden');
-                return;
-            } else {
-                warning.classList.add('hidden');
-            }
-
-            if (input) {
-                localStorage.setItem('camera_diag_gsheet_url', input);
-            } else {
-                localStorage.removeItem('camera_diag_gsheet_url');
-            }
-            toggleSettingsModal();
+            return DEFAULT_GSHEET_URL;
         }
 
         async function sendToGoogleSheet(payload) {
@@ -421,7 +302,7 @@
                 console.error("Google Sheet submission error:", err);
                 banner.className = "p-4 rounded-xl text-xs font-medium border flex items-center justify-between bg-rose-950/60 border-rose-500/40 text-rose-300";
                 icon.className = "fa-solid fa-circle-exclamation text-sm text-rose-400";
-                text.textContent = "Could not sync results to Google Sheet. Check your URL in settings.";
+                text.textContent = "Could not sync results to Google Sheet.";
             }
         }
 
@@ -434,8 +315,8 @@
             5: "Canon 1200D & Camera Controls"
         };
 
-        // 30 Assessment Questions (British English, UK 25 fps PAL rules, Canon 1200D & Manfrotto context)
-        const questions = [
+        // 30 Assessment Questions (with Option E: "I don't know" added)
+        const rawQuestions = [
             // Domain 1: Tripod Setup & Mechanics
             {
                 id: 1,
@@ -809,7 +690,6 @@
                 correct: 0,
                 explanation: "Pressing the Magnify button in Live View zooms into the image digitally (5x/10x) without altering focal length, permitting micro-adjustments on critical focus points."
             },
-
             {
                 id: 29,
                 domain: 5,
@@ -834,9 +714,16 @@
                     "The audio microphone level is muted."
                 ],
                 correct: 1,
-                explanation: "The exposure scale spans -2 to +2 stops. A indicator leaning left towards -2 indicates an underexposed frame requiring more light entry."
+                explanation: "The exposure scale spans -2 to +2 stops. An indicator leaning left towards -2 indicates an underexposed frame requiring more light entry."
             }
         ];
+
+        const questions = rawQuestions.map(q => {
+            return {
+                ...q,
+                options: [...q.options, "I don't know"]
+            };
+        });
 
         // YouTube Video Recommendations mapping by Domain
         const youtubeRecommendations = {
@@ -872,21 +759,23 @@
             }
         };
 
-        // Application State
+        // Application State Variables
         let currentQuestionIndex = 0;
         let userAnswers = {}; // questionId: selectedOptionIndex
         let studentName = "";
         let studentGroup = "";
+        let startTime = null;
 
         function startDiagnostic(e) {
             e.preventDefault();
             const nameInput = document.getElementById('student-name').value.trim();
             const groupInput = document.getElementById('student-group').value.trim();
 
-            if (!nameInput) return;
+            if (!nameInput || !groupInput) return;
 
             studentName = nameInput;
-            studentGroup = groupInput || "Standard Media Group";
+            studentGroup = groupInput;
+            startTime = Date.now(); // Record start time
 
             document.getElementById('intro-card').classList.add('hidden');
             document.getElementById('question-card').classList.remove('hidden');
@@ -903,12 +792,12 @@
             document.getElementById('question-number-tag').textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
             document.getElementById('question-text').textContent = q.question;
 
-            // Update Header Bar
+            // Update Progress Bar
             const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
             document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
             document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1} of ${questions.length}`;
 
-            // Render Options
+            // Render Options A - E
             const container = document.getElementById('options-container');
             container.innerHTML = '';
 
@@ -920,7 +809,7 @@
                 optDiv.className = 'relative';
 
                 optDiv.innerHTML = `
-                    <input type="radio" name="option" id="opt-${idx}" value="${idx}" ${isSelected ? 'checked' : ''} class="peer sr-only custom-radio" onchange="enableSubmitBtn()">
+                    <input type="radio" name="option" id="opt-${idx}" value="${idx}" ${isSelected ? 'checked' : ''} class="peer sr-only custom-radio" onchange="enableConfirmBtn()">
                     <label for="opt-${idx}" class="flex items-start p-4 bg-slate-900/80 border border-slate-700/70 rounded-xl cursor-pointer hover:bg-slate-700/40 transition">
                         <span class="w-6 h-6 rounded-full border-2 border-slate-600 flex items-center justify-center mr-3 mt-0.5 text-xs font-bold text-slate-400 peer-checked:border-sky-500 peer-checked:bg-sky-500 peer-checked:text-white transition">
                             ${String.fromCharCode(65 + idx)}
@@ -931,18 +820,14 @@
                 container.appendChild(optDiv);
             });
 
-            // Feedback Box Handling
-            const feedbackBox = document.getElementById('feedback-box');
+            // Button State
+            const confirmBtn = document.getElementById('confirm-next-btn');
             if (selectedAnswer !== undefined) {
-                showFeedback(q, selectedAnswer);
-                document.getElementById('submit-btn').classList.add('hidden');
-                document.getElementById('next-btn').classList.remove('hidden');
+                confirmBtn.disabled = false;
+                confirmBtn.className = "px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition text-sm shadow-md cursor-pointer";
             } else {
-                feedbackBox.classList.add('hidden');
-                document.getElementById('submit-btn').classList.remove('hidden');
-                document.getElementById('submit-btn').disabled = true;
-                document.getElementById('submit-btn').className = "px-6 py-2.5 rounded-xl bg-slate-700 text-slate-400 font-bold transition text-sm cursor-not-allowed";
-                document.getElementById('next-btn').classList.add('hidden');
+                confirmBtn.disabled = true;
+                confirmBtn.className = "px-6 py-2.5 rounded-xl bg-slate-700 text-slate-400 font-bold transition text-sm cursor-not-allowed";
             }
 
             // Previous Button visibility
@@ -954,13 +839,13 @@
             }
         }
 
-        function enableSubmitBtn() {
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = false;
-            submitBtn.className = "px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition text-sm shadow-md cursor-pointer";
+        function enableConfirmBtn() {
+            const confirmBtn = document.getElementById('confirm-next-btn');
+            confirmBtn.disabled = false;
+            confirmBtn.className = "px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition text-sm shadow-md cursor-pointer";
         }
 
-        function checkAnswer() {
+        function confirmAndNext() {
             const selectedOpt = document.querySelector('input[name="option"]:checked');
             if (!selectedOpt) return;
 
@@ -968,36 +853,7 @@
             const q = questions[currentQuestionIndex];
             userAnswers[q.id] = selectedIdx;
 
-            showFeedback(q, selectedIdx);
-
-            document.getElementById('submit-btn').classList.add('hidden');
-            document.getElementById('next-btn').classList.remove('hidden');
-        }
-
-        function showFeedback(q, selectedIdx) {
-            const feedbackBox = document.getElementById('feedback-box');
-            const feedbackTitle = document.getElementById('feedback-title');
-            const feedbackText = document.getElementById('feedback-text');
-            const feedbackIcon = document.getElementById('feedback-icon');
-
-            const isCorrect = selectedIdx === q.correct;
-
-            feedbackBox.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-500/40', 'text-emerald-300', 'bg-rose-950/60', 'border-rose-500/40', 'text-rose-300');
-            
-            if (isCorrect) {
-                feedbackBox.classList.add('bg-emerald-950/60', 'border', 'border-emerald-500/40', 'text-emerald-300');
-                feedbackIcon.className = "fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5";
-                feedbackTitle.textContent = "Correct Answer";
-            } else {
-                feedbackBox.classList.add('bg-rose-950/60', 'border', 'border-rose-500/40', 'text-rose-300');
-                feedbackIcon.className = "fa-solid fa-circle-xmark text-rose-400 text-lg mt-0.5";
-                feedbackTitle.textContent = `Incorrect (Correct Option: ${String.fromCharCode(65 + q.correct)})`;
-            }
-
-            feedbackText.textContent = q.explanation;
-        }
-
-        function nextQuestion() {
+            // Move immediately to next question
             if (currentQuestionIndex < questions.length - 1) {
                 currentQuestionIndex++;
                 renderQuestion();
@@ -1013,10 +869,24 @@
             }
         }
 
+        function formatTimeSpent(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            if (mins > 0) {
+                return `${mins}m ${secs}s`;
+            }
+            return `${secs}s`;
+        }
+
         function finishAssessment() {
             document.getElementById('question-card').classList.add('hidden');
             document.getElementById('header-progress').classList.add('hidden');
             document.getElementById('results-card').classList.remove('hidden');
+
+            // Time Spent Calculation
+            const endTime = Date.now();
+            const timeElapsedSeconds = Math.max(1, Math.floor((endTime - startTime) / 1000));
+            const formattedTimeSpent = formatTimeSpent(timeElapsedSeconds);
 
             // Calculate Score Statistics
             let totalCorrect = 0;
@@ -1035,7 +905,8 @@
 
             // Populate Certificate Node Data
             document.getElementById('cert-student-name').textContent = studentName;
-            document.getElementById('cert-group').textContent = `Group: ${studentGroup}`;
+            document.getElementById('cert-group').textContent = `Class / ID: ${studentGroup}`;
+            document.getElementById('cert-time-spent').innerHTML = `<i class="fa-solid fa-stopwatch mr-1"></i> Time Spent: ${formattedTimeSpent}`;
             document.getElementById('cert-overall-percentage').textContent = `${percentage}%`;
             document.getElementById('cert-grade-score').textContent = `${totalCorrect} of ${questions.length} Correct`;
             
@@ -1048,20 +919,20 @@
             const certId = 'CAM-' + Math.floor(100000 + Math.random() * 900000);
             document.getElementById('cert-id').textContent = certId;
 
-            // Grade / Badge Calculation
+            // Updated Attainment Levels (Emerging Knowledge, Solid Foundations, Strong Understanding, Experienced Technician)
             const gradeTitle = document.getElementById('cert-grade-title');
             if (percentage >= 85) {
-                gradeTitle.textContent = "Master Videographer";
-                gradeTitle.className = "text-xl font-black text-emerald-400 mb-1";
+                gradeTitle.textContent = "Experienced Technician";
+                gradeTitle.className = "text-xl sm:text-2xl font-black text-emerald-400 mb-1 text-center";
             } else if (percentage >= 70) {
-                gradeTitle.textContent = "Proficient Operator";
-                gradeTitle.className = "text-xl font-bold text-sky-400 mb-1";
+                gradeTitle.textContent = "Strong Understanding";
+                gradeTitle.className = "text-xl sm:text-2xl font-black text-sky-400 mb-1 text-center";
             } else if (percentage >= 50) {
-                gradeTitle.textContent = "Developing Operator";
-                gradeTitle.className = "text-xl font-semibold text-amber-400 mb-1";
+                gradeTitle.textContent = "Solid Foundations";
+                gradeTitle.className = "text-xl sm:text-2xl font-black text-amber-400 mb-1 text-center";
             } else {
-                gradeTitle.textContent = "Foundation Learner";
-                gradeTitle.className = "text-xl font-semibold text-rose-400 mb-1";
+                gradeTitle.textContent = "Emerging Knowledge";
+                gradeTitle.className = "text-xl sm:text-2xl font-black text-rose-400 mb-1 text-center";
             }
 
             // Populate Domain Breakdown Bars
@@ -1093,22 +964,14 @@
                 domainGrid.appendChild(bar);
             }
 
-            // Post payload to Google Sheet
+            // Payload with exact requested 6 headers: Timestamp, Student Name, Class / ID, Score (out of 30), Percentage, Time Spent
             const payload = {
                 timestamp: new Date().toISOString(),
-                date: dateStr,
                 studentName: studentName,
-                studentGroup: studentGroup,
-                score: totalCorrect,
-                totalQuestions: questions.length,
-                percentage: percentage,
-                attainmentLevel: gradeTitle.textContent,
-                certId: certId,
-                domain1: `${domainScores[1]}/${domainTotals[1]}`,
-                domain2: `${domainScores[2]}/${domainTotals[2]}`,
-                domain3: `${domainScores[3]}/${domainTotals[3]}`,
-                domain4: `${domainScores[4]}/${domainTotals[4]}`,
-                domain5: `${domainScores[5]}/${domainTotals[5]}`
+                classId: studentGroup,
+                score: `${totalCorrect} / ${questions.length}`,
+                percentage: `${percentage}%`,
+                timeSpent: formattedTimeSpent
             };
 
             sendToGoogleSheet(payload);
@@ -1121,7 +984,6 @@
             const ytContainer = document.getElementById('youtube-cards-container');
             ytContainer.innerHTML = '';
 
-            // If learner passed all domains with flying colors, show general advanced refresher links
             const domainsToShow = weakDomains.length > 0 ? weakDomains : [1, 2, 3, 4, 5];
 
             domainsToShow.forEach(dId => {
@@ -1157,25 +1019,21 @@
             const downloadBtn = document.getElementById('download-png-btn');
             
             try {
-                // Set Loading UI State
                 downloadBtn.disabled = true;
                 btnText.textContent = "Generating PNG...";
 
-                // Ensure custom fonts are ready
                 if (document.fonts) {
                     await document.fonts.ready;
                 }
 
                 const certElement = document.getElementById('certificate-node');
 
-                // Render high-res PNG canvas (scale 3 for crisp detail on Google Slides)
                 const canvas = await html2canvas(certElement, {
                     scale: 3,
                     useCORS: true,
-                    backgroundColor: '#0f172a', // Tailwind slate-900
+                    backgroundColor: '#0f172a',
                     logging: false,
                     onclone: (clonedDoc) => {
-                        // Ensure YouTube section is omitted if cloned into target
                         const clonedYT = clonedDoc.getElementById('youtube-recommendations-section');
                         if (clonedYT) {
                             clonedYT.remove();
@@ -1183,11 +1041,9 @@
                     }
                 });
 
-                // Generate Clean Sanitised Filename
                 const safeName = studentName.replace(/[^a-zA-Z0-9]/g, '_') || 'Student';
                 const filename = `Camera_Tripod_Diagnostic_Certificate-${safeName}.png`;
 
-                // Convert to data URL & download via link trigger
                 const imageURI = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
                 link.download = filename;
@@ -1198,7 +1054,6 @@
 
             } catch (err) {
                 console.error("Error generating certificate PNG:", err);
-                alert("There was an issue generating the image. Please try again.");
             } finally {
                 downloadBtn.disabled = false;
                 btnText.textContent = "Download PNG Certificate";
@@ -1208,6 +1063,7 @@
         function restartDiagnostic() {
             userAnswers = {};
             currentQuestionIndex = 0;
+            startTime = null;
             document.getElementById('results-card').classList.add('hidden');
             document.getElementById('intro-card').classList.remove('hidden');
         }
