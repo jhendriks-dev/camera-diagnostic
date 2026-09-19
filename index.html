@@ -318,11 +318,23 @@
             banner.classList.remove('hidden');
 
             try {
-                await fetch(url, {
+                // Build URLSearchParams to populate e.parameter cleanly in Google Apps Script across Columns A-F
+                const queryParams = new URLSearchParams();
+                queryParams.append('Timestamp', payload['Timestamp'] || payload.timestamp);
+                queryParams.append('Student Name', payload['Student Name'] || payload.studentName);
+                queryParams.append('ClassID', payload['ClassID'] || payload.classId);
+                queryParams.append('Score', payload['Score'] || payload.score);
+                queryParams.append('Percentage', payload['Percentage'] || payload.percentage);
+                queryParams.append('Time Spent', payload['Time Spent'] || payload.timeSpent);
+
+                // Target URL with query params
+                const targetUrl = `${url}${url.includes('?') ? '&' : '?'}${queryParams.toString()}`;
+
+                await fetch(targetUrl, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'text/plain;charset=utf-8'
                     },
                     body: JSON.stringify(payload)
                 });
@@ -997,9 +1009,21 @@
                 domainGrid.appendChild(bar);
             }
 
-            // Payload with exact requested 6 headers: Timestamp, Student Name, Class / ID, Score (out of 30), Percentage, Time Spent
+            // UK Formatted Timestamp
+            const now = new Date();
+            const ukTimestamp = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            // Payload mapping columns A-F cleanly
             const payload = {
-                timestamp: new Date().toISOString(),
+                "Timestamp": ukTimestamp,
+                "Student Name": studentName,
+                "ClassID": studentGroup,
+                "Class / ID": studentGroup,
+                "Score": `${totalCorrect} / ${questions.length}`,
+                "Percentage": `${percentage}%`,
+                "Time Spent": formattedTimeSpent,
+                // Fallbacks for Apps Scripts expecting camelCase
+                timestamp: ukTimestamp,
                 studentName: studentName,
                 classId: studentGroup,
                 score: `${totalCorrect} / ${questions.length}`,
