@@ -84,24 +84,24 @@
             </div>
             <h2 class="text-3xl font-extrabold text-white mb-3">Camera & Tripod Operational Assessment</h2>
             <p class="text-slate-300 text-base mb-6 leading-relaxed">
-                This diagnostic evaluates your practical understanding of mounting and levelling Manfrotto tripods, operating Canon DSLR controls, and mastering the exposure triangle according to video production standards.
+                This assessment tests your practical skills in setting up tripods, controlling camera settings (Aperture, ISO, Shutter Speed), and getting sharp, well-exposed video footage.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
                     <i class="fa-solid fa-list-check text-sky-400 text-xl mb-2"></i>
                     <h3 class="font-semibold text-white text-sm">30 Questions</h3>
-                    <p class="text-xs text-slate-400">Multiple choice spanning 5 core technical domains.</p>
+                    <p class="text-xs text-slate-400">Multiple choice spanning 5 core camera modules.</p>
                 </div>
                 <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
                     <i class="fa-solid fa-clock text-sky-400 text-xl mb-2"></i>
                     <h3 class="font-semibold text-white text-sm">Time Tracked</h3>
-                    <p class="text-xs text-slate-400">Completion time recorded automatically upon submission.</p>
+                    <p class="text-xs text-slate-400">Completion time is recorded automatically upon submission.</p>
                 </div>
                 <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
                     <i class="fa-solid fa-file-image text-sky-400 text-xl mb-2"></i>
                     <h3 class="font-semibold text-white text-sm">PNG Certificate</h3>
-                    <p class="text-xs text-slate-400">Download high-res results to embed into portfolio slides.</p>
+                    <p class="text-xs text-slate-400">Download high-res results to embed directly into your portfolio slides.</p>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
                 </div>
                 <div>
                     <label for="student-group" class="block text-sm font-medium text-slate-300 mb-1">Group / Class Code <span class="text-sky-400">*</span></label>
-                    <input type="text" id="student-group" required placeholder="e.g. Year 12 Media Group A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition">
+                    <input type="text" id="student-group" required placeholder="e.g. Year 10 Media Group A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition">
                 </div>
                 <button type="submit" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-sky-600/30 cursor-pointer">
                     <span>Begin Assessment</span>
@@ -219,7 +219,7 @@
                 </div>
 
                 <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-xs text-slate-500">
-                    <span>Educational Media Standard</span>
+                    <span>The BRIT School ~ Film and Media Production</span>
                     <span>Verification ID: <span id="cert-id" class="font-mono text-slate-400">CAM-00000</span></span>
                 </div>
             </div>
@@ -260,7 +260,7 @@
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 bg-slate-950 text-slate-500 text-xs text-center">
         <div class="max-w-5xl mx-auto px-4">
-            <p>Interactive Diagnostic Platform for Creative Media Education • British English Edition</p>
+            <p>The BRIT School ~ Film and Media Production</p>
         </div>
     </footer>
 
@@ -315,86 +315,86 @@
             5: "Canon 1200D & Camera Controls"
         };
 
-        // 30 Assessment Questions (with Option E: "I don't know" added)
+        // 30 Assessment Questions (Simplified phrasing for 14-15 year olds with Option E "I don't know")
         const rawQuestions = [
             // Domain 1: Tripod Setup & Mechanics
             {
                 id: 1,
                 domain: 1,
-                question: "When attaching a Manfrotto quick-release plate to the camera base, what is the correct orientation and securing method?",
+                question: "When attaching a quick-release plate to the bottom of a camera, how should you safely lock it in place?",
                 options: [
-                    "Tighten the 1/4 inch screw firmly using a coin or D-ring, ensuring the lens direction arrow points forward.",
-                    "Finger-tighten the screw loosely so the camera can swivel freely on top of the tripod head.",
-                    "Attach the plate backwards so the lock clip rests under the lens barrel.",
-                    "Glue the plate permanently to the camera body to avoid losing screws."
+                    "Tighten the screw firmly using a coin or key, making sure the directional arrow points towards the front lens.",
+                    "Leave the screw slightly loose so the camera can swivel freely on top of the tripod.",
+                    "Attach the plate backwards so the lock catch sits under the front lens.",
+                    "Glue the plate directly onto the camera body so it never falls off."
                 ],
                 correct: 0,
-                explanation: "Quick-release plates feature an arrow indicating lens alignment. Tightening securely with a coin or built-in D-ring prevents the camera from unscrewing or tilting unexpectedly."
+                explanation: "Quick-release plates feature an arrow showing which way the lens points. Tightening securely with a coin or D-ring stops the camera wobbling."
             },
             {
                 id: 2,
                 domain: 1,
-                question: "What is the primary function of the spirit/bubble level located on a tripod head?",
+                question: "What is the main purpose of the bubble level (spirit level) on a tripod head?",
                 options: [
-                    "To check whether the camera battery is fully charged.",
-                    "To ensure the tripod head is completely horizontal to avoid tilted horizon lines in video pan shots.",
-                    "To measure the optical zoom focal length of the attached lens.",
-                    "To adjust the friction drag on the pan handle."
+                    "To check how much battery life the camera has left.",
+                    "To make sure your camera is perfectly level so your shots don't look wonky when panning left or right.",
+                    "To zoom in closer on a subject in the distance.",
+                    "To adjust how fast the tripod handle moves."
                 ],
                 correct: 1,
-                explanation: "Checking the spirit level guarantees a true horizon. If a tripod is unlevel, panning left or right will cause the horizon line to slope unnaturally."
+                explanation: "Checking the bubble level ensures your horizon stays flat. If the tripod is uneven, panning left or right will tilt your video."
             },
             {
                 id: 3,
                 domain: 1,
-                question: "Which sequence should you follow when adjusting tripod leg height to ensure maximum physical stability?",
+                question: "Which tripod leg sections should you extend first to keep your setup as stable as possible?",
                 options: [
-                    "Extend the thin bottom leg sections fully before touching the thick top leg sections.",
-                    "Extend the thicker top leg sections first, securing the leg levers before extending lower sections as needed.",
-                    "Raise the central column to maximum height before opening any leg latches.",
-                    "Unscrew all leg joints simultaneously and stretch the tripod apart."
+                    "Extend the thin bottom legs fully before opening any top leg clips.",
+                    "Extend the thick top leg sections first because they are wider, stronger, and don't wobble.",
+                    "Raise the central middle column as high as it goes before opening any legs.",
+                    "Unclip all leg levers at the same time and yank the tripod apart."
                 ],
                 correct: 1,
-                explanation: "The thicker upper leg sections provide far greater rigidity and vibration resistance. Thinner bottom extensions should only be used when extra height is required."
+                explanation: "The thick upper legs are far stronger and resist shaking. Thinner bottom extensions should only be used if you need extra height."
             },
             {
                 id: 4,
                 domain: 1,
-                question: "On an entry-level Manfrotto tripod head with pan and tilt locks, what happens if you force the pan handle while locked?",
+                question: "What happens if you force the tripod pan handle while the pan lock knob is still tightened?",
                 options: [
-                    "It smoothly engages an internal fluid dampener.",
-                    "It strips or damages the internal locking mechanism and destabilises the head.",
+                    "It smoothly dampens the camera movement for a slow-motion pan.",
+                    "It can snap or wear out the internal lock mechanism inside the tripod head.",
                     "It automatically increases the camera's frame rate.",
-                    "It re-calibrates the camera sensor's white balance."
+                    "It automatically fixes the colour temperature of your shot."
                 ],
                 correct: 1,
-                explanation: "Forcing locked tension handles damages thread locks and pan mechanisms. Always loosen the pan or tilt lock knob before adjusting position."
+                explanation: "Forcing locked handles damages the internal locking screw. Always loosen the pan or tilt knob before moving the tripod handle."
             },
             {
                 id: 5,
                 domain: 1,
-                question: "When mounting a camera onto a Manfrotto tripod head, how do you verify that the camera is safely locked?",
+                question: "When mounting a camera onto a tripod head, how do you double check that it is locked safely?",
                 options: [
-                    "Listen for the mechanical click, pull the secondary safety latch, and gently test-lift the camera body.",
-                    "Assume it is secure as soon as the plate touches the head platform.",
-                    "Spin the camera around 360 degrees quickly.",
-                    "Tighten the lens zoom ring until it stops moving."
+                    "Listen for the click, check the red safety latch, and gently tug the camera body upwards to test it.",
+                    "Assume it is safe as soon as the plate touches the top of the tripod.",
+                    "Spin the camera around quickly in a full circle.",
+                    "Twist the lens zoom ring until it stops turning."
                 ],
                 correct: 0,
-                explanation: "Always push the quick-release plate into the receiver until it clicks, engage the safety lock pin, and test-lift the camera body to prevent accidental drops."
+                explanation: "Push the plate in until it clicks, check the safety catch is locked, and give the camera body a gentle lift test before letting go."
             },
             {
                 id: 6,
                 domain: 1,
-                question: "Why should you avoid extending the tripod's central column to its maximum height outdoors?",
+                question: "Why should you avoid raising the tripod central column all the way up when filming outdoors?",
                 options: [
                     "It drains the camera battery twice as fast.",
-                    "It significantly elevates the centre of gravity, making the camera prone to wind shake and tipping.",
-                    "It changes the lens aperture automatically from f/2.8 to f/22.",
-                    "It alters the video signal from 25 fps to 30 fps."
+                    "It makes the tripod top-heavy, making your footage shake in the wind or risk falling over.",
+                    "It changes your lens aperture automatically.",
+                    "It changes the video frame rate from 25fps to 30fps."
                 ],
                 correct: 1,
-                explanation: "The central column acts as a single thin monopod column. Raising it high drastically reduces stability and introduces noticeable micro-jitter into video recordings."
+                explanation: "The center column acts like a thin pole. Raising it high drastically reduces stability and introduces micro-shakes into your footage."
             },
 
             // Domain 2: Aperture & Depth of Field
@@ -403,18 +403,18 @@
                 domain: 2,
                 question: "What physical component inside a camera lens controls the aperture setting?",
                 options: [
-                    "An adjustable diaphragm iris made of overlapping blades that controls light entrance.",
-                    "An electronic shutter curtain positioned directly in front of the sensor.",
-                    "A glass prism that rotates to reflect ambient light.",
-                    "A digital filter layer on the LCD screen."
+                    "An adjustable ring of overlapping metal blades (the iris) that opens and closes to let light through.",
+                    "An electronic shutter curtain positioned right in front of the camera sensor.",
+                    "A glass mirror that flips up and down inside the camera.",
+                    "A digital filter layer built into the LCD screen."
                 ],
                 correct: 0,
-                explanation: "The aperture is the physical opening formed by an adjustable iris inside the lens, controlling both light throughput and depth of field."
+                explanation: "The aperture is the physical hole made by an adjustable iris inside the lens, controlling both light entry and background blur."
             },
             {
                 id: 8,
                 domain: 2,
-                question: "Which f-stop value represents the widest physical lens opening and gives the shallowest depth of field?",
+                question: "Which f-stop number represents the widest lens opening and gives you the softest, most blurred background?",
                 options: [
                     "f/22",
                     "f/11",
@@ -422,38 +422,38 @@
                     "f/1.8"
                 ],
                 correct: 3,
-                explanation: "Lower f-numbers (e.g. f/1.8) correspond to wider iris openings, allowing maximum light into the sensor and producing a shallow depth of field (blurred background)."
+                explanation: "Lower f-numbers (like f/1.8) mean a wider lens opening, letting in maximum light and creating a soft, blurred background."
             },
             {
                 id: 9,
                 domain: 2,
-                question: "If you change your aperture from f/4 to f/8, what happens to the aperture opening and light entry?",
+                question: "If you change your aperture setting from f/4 to f/8, what effect will you see in your image?",
                 options: [
-                    "The aperture opening becomes smaller, reducing light entering the camera.",
-                    "The aperture opening becomes larger, doubling light entering the camera.",
-                    "The aperture opening stays the same size but colour temperature warms up.",
-                    "The camera automatically switches from 25 fps to 50 fps."
+                    "The image gets darker and more of the background comes into sharp focus.",
+                    "The image gets brighter and the background gets much more blurred.",
+                    "The colours instantly change into black and white.",
+                    "The video automatically speeds up into fast motion."
                 ],
                 correct: 0,
-                explanation: "Stopping down from f/4 to f/8 shrinks the physical iris opening, restricting light entry while increasing the overall depth of field."
+                explanation: "Changing to f/8 shrinks the lens opening (less light = darker picture) while increasing the depth of field (more in focus)."
             },
             {
                 id: 10,
                 domain: 2,
-                question: "You want to film a portrait interview with a sharp subject and an aesthetically blurred background (bokeh). Which aperture setting is most suitable?",
+                question: "You want to film a portrait interview where your person is sharp, but the background is nicely blurred. Which aperture setting is best?",
                 options: [
-                    "f/22",
-                    "f/16",
-                    "f/2.8",
-                    "f/8"
+                    "f/22 (very small opening)",
+                    "f/16 (small opening)",
+                    "f/2.8 (wide opening)",
+                    "f/8 (medium opening)"
                 ],
                 correct: 2,
-                explanation: "A wide aperture such as f/2.8 creates a shallow depth of field, separating the subject clearly from a soft, blurred background."
+                explanation: "A wide aperture like f/2.8 creates a shallow depth of field, making your subject pop out against a softly blurred background."
             },
             {
                 id: 11,
                 domain: 2,
-                question: "When filming an expansive wide-angle landscape shot where everything from foreground to background must be sharp, which setting is ideal?",
+                question: "You are filming a wide landscape shot where you want both near objects and distant hills to look crisp and sharp. Which aperture setting is ideal?",
                 options: [
                     "f/1.4",
                     "f/2.0",
@@ -461,53 +461,53 @@
                     "f/1.2"
                 ],
                 correct: 2,
-                explanation: "Mid-to-small apertures like f/8 or f/11 offer a deep depth of field, ensuring sharp focus across both near foreground and distant background elements without introducing extreme diffraction."
+                explanation: "Mid-to-small apertures like f/8 or f/11 give a deep depth of field, keeping everything sharp from front to back."
             },
             {
                 id: 12,
                 domain: 2,
-                question: "How does closing down the aperture to f/22 impact exposure if shutter speed and ISO remain unchanged?",
+                question: "If you close your aperture down to f/22 without changing any other settings, what happens to your shot?",
                 options: [
-                    "It dramatically darkens the frame image.",
-                    "It makes the image significantly brighter.",
-                    "It turns the image into monochrome black and white.",
-                    "It has zero impact on image brightness."
+                    "The picture becomes very dark because only a tiny pinhole of light gets in.",
+                    "The picture becomes extremely bright and overexposed.",
+                    "The shot automatically turns into a slow-motion video.",
+                    "The image brightness stays completely unchanged."
                 ],
                 correct: 0,
-                explanation: "Closing the iris to f/22 severely restricts light passing through the lens, causing the captured frame to become much darker unless compensated for."
+                explanation: "Closing the aperture to f/22 makes the lens hole tiny, cutting out most light and making the shot much darker."
             },
 
             // Domain 3: ISO & Dynamic Range
             {
                 id: 13,
                 domain: 3,
-                question: "What does ISO measure in digital video and photography?",
+                question: "In video and photography, what does changing the ISO setting do?",
                 options: [
-                    "The speed at which the camera lens focuses on moving targets.",
-                    "The amplification level of the digital signal produced by the camera sensor.",
-                    "The physical frame rate recorded per second.",
-                    "The height adjustment level of the tripod base plate."
+                    "It changes how fast the lens focuses on moving subjects.",
+                    "It brightens or darkens the image by boosting the electronic signal from the sensor.",
+                    "It changes the number of frames recorded per second.",
+                    "It adjusts the height of the tripod base plate."
                 ],
                 correct: 1,
-                explanation: "ISO measures the sensitivity or gain applied to the camera sensor's electrical signal. Higher ISO boosts signal brightness electronically."
+                explanation: "ISO controls sensor sensitivity/gain. Raising ISO brightens the image electronically when filming in dark conditions."
             },
             {
                 id: 14,
                 domain: 3,
-                question: "What is the primary unwanted drawback of raising ISO to high levels (e.g. ISO 6400) on an entry-level crop sensor camera like the Canon 1200D?",
+                question: "What is the main downside of pushing your ISO up to a very high number (e.g. ISO 6400)?",
                 options: [
-                    "Increased digital noise, grain, and loss of shadow detail.",
-                    "Excessive motion blur on fast-moving objects.",
-                    "Lens distortion around frame corners.",
-                    "Faster battery consumption in the tripod head."
+                    "The footage gets filled with ugly, speckled digital grain called 'noise'.",
+                    "The subject starts moving in slow motion.",
+                    "The lens bends and distorts around the edges.",
+                    "The camera memory card fills up in seconds."
                 ],
                 correct: 0,
-                explanation: "Amplifying sensor gain at high ISO settings introduces visible digital noise, speckling, colour artifacts, and degraded dynamic range, especially on entry-level APS-C sensors."
+                explanation: "Boosting ISO too high amplifies digital noise, making dark areas look speckled, grainy, and fuzzy."
             },
             {
                 id: 15,
                 domain: 3,
-                question: "What is generally considered the base ISO for maximum image cleanliness outdoors in direct sunlight on a Canon DSLR?",
+                question: "When filming outside in bright direct sunlight, which ISO setting gives you the cleanest, clearest picture quality?",
                 options: [
                     "ISO 100",
                     "ISO 1600",
@@ -515,66 +515,66 @@
                     "ISO 6400"
                 ],
                 correct: 0,
-                explanation: "Base ISO (typically ISO 100 on Canon DSLRs) delivers the cleanest signal with minimal noise, highest dynamic range, and purest colour rendition."
+                explanation: "ISO 100 is the base setting for Canon DSLRs. It gives the cleanest picture with no grain when you have plenty of light."
             },
             {
                 id: 16,
                 domain: 3,
-                question: "When filming in a dimly lit indoor room, what is the best practice order for achieving clean exposure before raising ISO high?",
+                question: "If you are filming in a dim indoor room, what should you try doing before turning your ISO up high?",
                 options: [
-                    "Raise ISO to maximum immediately without adjusting physical lights.",
-                    "Open aperture wider or add external lighting sources before resorting to excessive ISO increases.",
-                    "Set shutter speed to 1/2000 sec to compensate.",
-                    "Turn off all room lights and rely on camera LCD brightness."
+                    "Turn up the ISO to maximum immediately.",
+                    "Open your aperture wider or add studio lights so clean, natural light enters the camera.",
+                    "Set shutter speed to 1/2000 sec.",
+                    "Turn off all the room lights."
                 ],
                 correct: 1,
-                explanation: "Always maximize clean light entry first (opening aperture or adding studio lights) before boosting ISO noise gain."
+                explanation: "Always try getting physical light into the lens first (opening aperture or adding lights) before boosting ISO noise."
             },
             {
                 id: 17,
                 domain: 3,
-                question: "If you move your camera setup from direct outdoor sunlight into a dark interior corridor, how should ISO be adjusted if lighting cannot be added?",
+                question: "If you walk from bright sunlight into a dark corridor and cannot add extra lights, how should you adjust your ISO?",
                 options: [
-                    "Lower ISO from 800 to 100.",
-                    "Increase ISO from 100 to an appropriate higher value (e.g. 800 or 1600).",
-                    "Keep ISO fixed at 100 and increase shutter speed to 1/1000 sec.",
-                    "Change the frame rate setting to 50 fps."
+                    "Lower ISO from 800 down to 100.",
+                    "Increase ISO to a higher number (e.g. 800 or 1600) so the sensor picks up more light.",
+                    "Keep ISO at 100 and speed up shutter speed to 1/1000 sec.",
+                    "Change your frame rate to 50fps."
                 ],
                 correct: 1,
-                explanation: "Moving into lower ambient light requires increasing sensor gain (ISO) or opening aperture to maintain exposure balance."
+                explanation: "In lower light, raising ISO helps brighten up dark scenes so your footage isn't pitch black."
             },
             {
                 id: 18,
                 domain: 3,
-                question: "How can you distinguish between digital noise (high ISO) and motion blur (slow shutter speed) in recorded footage?",
+                question: "How can you tell the difference between high ISO noise and motion blur in your footage?",
                 options: [
-                    "Digital noise appears as static grainy speckles across dark regions; motion blur appears as smearing along movement paths.",
-                    "Digital noise only affects bright whites; motion blur only affects black tones.",
-                    "Digital noise causes the tripod to vibrate; motion blur rotates the camera horizon.",
-                    "They are identical visual phenomena with no difference."
+                    "ISO noise looks like static grainy specks in dark areas; motion blur looks like smearing when things move.",
+                    "ISO noise only shows up in bright white highlights.",
+                    "ISO noise makes the tripod shake; motion blur rotates the horizon.",
+                    "They are the exact same visual effect with no difference."
                 ],
                 correct: 0,
-                explanation: "Noise manifests as fine grain/speckles across sensor pixels regardless of movement, while motion blur causes moving objects to smear across sequential frames."
+                explanation: "Digital noise is a grainy texture over dark areas, while motion blur is the trailing smear left behind by fast movement."
             },
 
             // Domain 4: Shutter Speed & UK Frame Rates
             {
                 id: 19,
                 domain: 4,
-                question: "What is the standard broadcast video frame rate standard used across UK television and PAL video production?",
+                question: "What is the standard video frame rate used for UK television and PAL broadcast production?",
                 options: [
                     "24 fps",
                     "25 fps",
-                    "29.97 fps",
+                    "30 fps",
                     "60 fps"
                 ],
                 correct: 1,
-                explanation: "UK broadcast and PAL regional standard frame rate is 25 frames per second (fps), aligning historically with 50Hz electrical mains frequency."
+                explanation: "UK TV and video standards run at 25 frames per second (fps), matching the UK's 50Hz electrical grid frequency."
             },
             {
                 id: 20,
                 domain: 4,
-                question: "According to the 180-degree shutter rule for natural cinematic motion blur, what shutter speed should be chosen when recording video at 25 fps?",
+                question: "Following the 180-degree shutter rule for realistic movement, what shutter speed should you set when recording at 25 fps?",
                 options: [
                     "1/25 sec",
                     "1/50 sec",
@@ -582,118 +582,118 @@
                     "1/500 sec"
                 ],
                 correct: 1,
-                explanation: "The 180-degree shutter rule dictates setting shutter speed to double the frame rate fraction (1 / [2 x FPS]). For 25 fps, the standard shutter speed is 1/50 sec."
+                explanation: "The 180-degree rule says shutter speed should be double your frame rate (1 / [2 x FPS]). For 25fps, set 1/50 sec."
             },
             {
                 id: 21,
                 domain: 4,
-                question: "What visual effect occurs if you set a very fast shutter speed (e.g. 1/1000 sec) while recording 25 fps video of a running person?",
+                question: "What visual effect happens if you set a super fast shutter speed (like 1/1000 sec) while filming someone running at 25 fps?",
                 options: [
-                    "Smooth natural motion blur like a feature film.",
-                    "Choppy, staccato, jittery motion with crisp individual frames (like the opening action in Saving Private Ryan).",
-                    "Heavy dark shadows with rainbow lens flares.",
-                    "Complete loss of audio synchronization."
+                    "Smooth natural motion blur like a cinema movie.",
+                    "Jittery, choppy, robotic motion with crisp individual frames (staccato motion).",
+                    "Dark blurry shadows with rainbow lens flares.",
+                    "The audio sound goes completely out of sync."
                 ],
                 correct: 1,
-                explanation: "Fast shutter speeds eliminate natural motion blur per frame, making movement look rigid, sharp, and jittery/staccato."
+                explanation: "Fast shutter speeds eliminate natural motion blur, making movement look rigid, sharp, jittery, and staccato."
             },
             {
                 id: 22,
                 domain: 4,
-                question: "What visual artifact occurs when shutter speed is dropped too low (e.g. 1/4 sec) during handheld camera movement?",
+                question: "What happens to your video if your shutter speed is set too slow (like 1/4 sec) while holding the camera in your hands?",
                 options: [
-                    "Extreme smearing and unwanted camera shake blur.",
-                    "Crisp action frozen in time.",
-                    "Digital noise reduction across shadows.",
-                    "Automatic zoom in towards the center frame."
+                    "Your video looks super blurry and smeared whenever the camera moves.",
+                    "Fast motion gets frozen perfectly sharp with zero blur.",
+                    "Digital noise is automatically erased.",
+                    "The lens zooms in towards the center automatically."
                 ],
                 correct: 0,
-                explanation: "Shutter speeds slower than the 180-degree rule cause excessive exposure time per frame, resulting in smearing and visible camera shake."
+                explanation: "Shutter speeds slower than 1/50 sec leave the shutter open too long, turning small hand shakes into blurry smears."
             },
             {
                 id: 23,
                 domain: 4,
-                question: "Why can artificial fluorescent lighting in UK classrooms flicker on video when shutter speed is set incorrectly?",
+                question: "Why can classroom lights flicker on camera if your shutter speed isn't set correctly in the UK?",
                 options: [
-                    "Because UK electrical grid mains supply operates at 50Hz alternating current.",
-                    "Because Canon lenses do not support artificial light filtering.",
-                    "Because tripod quick release plates reflect ambient ceiling lights.",
-                    "Because memory card write speeds drop under indoor lighting."
+                    "Because the UK electrical grid runs at 50Hz, making fluorescent lights pulse 100 times per second.",
+                    "Because camera lenses cannot focus under artificial light.",
+                    "Because tripod legs reflect ceiling lights into the sensor.",
+                    "Because memory cards write slower under indoor lights."
                 ],
                 correct: 0,
-                explanation: "UK mains electricity alternates at 50Hz (pulsing light 100 times per sec). Setting shutter speeds like 1/50 sec matches this frequency and prevents flickering."
+                explanation: "UK mains electricity runs at 50Hz. Setting your shutter speed to 1/50 sec matches this pulse rate and stops light flickering."
             },
             {
                 id: 24,
                 domain: 4,
-                question: "If you double your shutter speed from 1/50 sec to 1/100 sec, what effect does this have on the light entering the sensor?",
+                question: "If you speed up your shutter speed from 1/50 sec to 1/100 sec, what effect will it have on your image?",
                 options: [
-                    "It doubles the light entering the sensor.",
-                    "It cuts the light duration in half (reduces exposure by 1 stop).",
-                    "It has no impact on light entry.",
-                    "It changes lens focus distance automatically."
+                    "It doubles the brightness of the shot.",
+                    "It cuts the light duration in half, making the picture darker.",
+                    "It makes zero difference to light levels.",
+                    "It changes your focus point automatically."
                 ],
                 correct: 1,
-                explanation: "Doubling shutter speed reduces sensor exposure time by half, requiring a wider aperture or higher ISO to compensate."
+                explanation: "Faster shutter speeds mean the shutter is open for less time, letting in less light and making your shot darker."
             },
 
             // Domain 5: Canon 1200D & Camera Controls
             {
                 id: 25,
                 domain: 5,
-                question: "On the mode dial of a Canon 1200D DSLR, which setting must be selected to enable full manual exposure controls for video shooting?",
+                question: "Where do you turn the main top dial on a Canon DSLR like the 1200D to shoot video with manual controls?",
                 options: [
-                    "Auto Mode (Green Square)",
-                    "Movie / Camera Icon Mode (with Manual Exposure set in menu)",
-                    "Portrait Scene Mode",
+                    "Auto Mode (the green square)",
+                    "Movie / Video Camera Icon Mode",
+                    "Portrait Mode",
                     "Flash Off Mode"
                 ],
                 correct: 1,
-                explanation: "Setting the mode dial to Movie Mode allows access to video shooting and full manual override (Shutter, Aperture, ISO) via menu preferences."
+                explanation: "Turning the top mode dial to the Movie Camera icon enables video mode and allows you to adjust shutter, aperture, and ISO manually."
             },
             {
                 id: 26,
                 domain: 5,
-                question: "Where is the physical switch located to change between Manual Focus (MF) and Auto Focus (AF) on a standard Canon EF-S kit lens?",
+                question: "Where is the switch to change between Manual Focus (MF) and Auto Focus (AF) on a Canon kit lens?",
                 options: [
-                    "On the camera top dial next to the power switch.",
-                    "On the side barrel of the lens unit.",
-                    "Inside the tripod mount platform.",
-                    "Underneath the rubber eye cup."
+                    "On the top dial next to the power button.",
+                    "On the side of the lens barrel.",
+                    "Underneath the tripod mounting plate.",
+                    "Next to the viewfinder eyepiece."
                 ],
                 correct: 1,
-                explanation: "Canon EF and EF-S lenses feature a physical AF/MF toggle switch on the side of the lens barrel."
+                explanation: "Canon lenses have a physical AF/MF toggle switch built directly onto the side of the lens barrel."
             },
             {
                 id: 27,
                 domain: 5,
-                question: "Why should media students use Manual White Balance or dedicated presets (e.g. Tungsten/Daylight) rather than Auto White Balance (AWB) for video?",
+                question: "Why should media students set White Balance manually instead of using Auto White Balance (AWB) for video?",
                 options: [
-                    "AWB dynamically shifts colour temperature mid-take if subjects or backgrounds move, creating unnatural colour shifts.",
-                    "AWB locks the tripod head pan lock automatically.",
-                    "AWB reduces recording resolution from 1080p to 480p.",
-                    "AWB drains memory card space faster."
+                    "Auto White Balance can shift colours unnaturally in the middle of a recording if subjects or lighting move.",
+                    "Auto White Balance locks the tripod handle automatically.",
+                    "Auto White Balance lowers the video recording quality.",
+                    "Auto White Balance fills up memory cards faster."
                 ],
                 correct: 0,
-                explanation: "Auto White Balance continuously recalculates light temperature. If a subject wearing red enters the frame, AWB shifts blue, ruining color continuity across takes."
+                explanation: "Auto White Balance constantly changes colour tone. Locking White Balance ensures your video colours stay consistent across all shots."
             },
             {
                 id: 28,
                 domain: 5,
-                question: "Which button feature on the Canon 1200D helps videographers verify precise manual focus on a subject's eyes before hitting record?",
+                question: "Which button on a Canon DSLR zooms into the LCD screen (5x or 10x) so you can check if your subject's eyes are sharply in focus before filming?",
                 options: [
-                    "The Magnify / Zoom button (5x / 10x digital zoom preview in Live View).",
-                    "The Built-in Pop-up Flash button.",
-                    "The Lens Release latch button.",
-                    "The Drive / Self-Timer button."
+                    "The Magnify / Zoom button (magnifying glass icon).",
+                    "The Pop-up Flash button.",
+                    "The Lens Release button.",
+                    "The Timer / Drive button."
                 ],
                 correct: 0,
-                explanation: "Pressing the Magnify button in Live View zooms into the image digitally (5x/10x) without altering focal length, permitting micro-adjustments on critical focus points."
+                explanation: "Pressing the Magnify button in Live View zooms into the screen digitally (5x/10x) so you can micro-adjust manual focus perfectly."
             },
             {
                 id: 29,
                 domain: 5,
-                question: "What is the recommended movie recording quality setting on a Canon 1200D for UK high-definition production?",
+                question: "What is the standard Full HD video setting to select on a Canon DSLR for UK media projects?",
                 options: [
                     "1920x1080 at 25 fps",
                     "640x480 at 30 fps",
@@ -701,23 +701,24 @@
                     "3840x2160 at 120 fps"
                 ],
                 correct: 0,
-                explanation: "Full HD 1920x1080 at 25 fps matches UK standard 16:9 widescreen broadcast specifications."
+                explanation: "Full HD 1920x1080 at 25 fps is the UK standard for 16:9 widescreen video production."
             },
             {
                 id: 30,
                 domain: 5,
-                question: "In the viewfinder or Live View screen, what does an exposure level indicator mark pointing far to the left (-2) signify?",
+                question: "When looking at the exposure meter bar on screen, what does it mean if the indicator is pointing all the way to the left (-2)?",
                 options: [
-                    "The image is severely overexposed (too bright).",
-                    "The image is severely underexposed (too dark).",
-                    "The tripod leg latches are unlocked.",
-                    "The audio microphone level is muted."
+                    "The shot is way too bright (overexposed).",
+                    "The shot is way too dark (underexposed) and needs more light entry.",
+                    "The tripod leg levers are unlocked.",
+                    "The microphone audio is muted."
                 ],
                 correct: 1,
-                explanation: "The exposure scale spans -2 to +2 stops. An indicator leaning left towards -2 indicates an underexposed frame requiring more light entry."
+                explanation: "The exposure meter ranges from -2 to +2. An indicator leaning left towards -2 means the image is underexposed (too dark)."
             }
         ];
 
+        // Map options to automatically append Option E "I don't know"
         const questions = rawQuestions.map(q => {
             return {
                 ...q,
@@ -731,13 +732,13 @@
                 title: "Tripod Levelling & Plate Mounting",
                 channel: "Media Skills Academy",
                 url: "https://www.youtube.com/results?search_query=manfrotto+tripod+setup+media+students",
-                desc: "Master setting up Manfrotto quick-release plates, levelling horizons, and securing tripod locks."
+                desc: "Master setting up quick-release plates, levelling horizons, and securing tripod locks safely."
             },
             2: {
                 title: "Aperture & Depth of Field Explained",
                 channel: "Photography Basics",
                 url: "https://www.youtube.com/results?search_query=exposure+triangle+aperture+depth+of+field",
-                desc: "Learn how f-stop numbers control background blur, portrait bokeh, and lens exposure."
+                desc: "Learn how f-stop numbers control background blur, portrait bokeh, and image exposure."
             },
             3: {
                 title: "ISO & Managing Digital Noise",
@@ -749,7 +750,7 @@
                 title: "180 Degree Shutter Rule (25 fps UK PAL)",
                 channel: "UK Broadcast Media",
                 url: "https://www.youtube.com/results?search_query=180+degree+shutter+rule+25fps+pal",
-                desc: "Explore cinematic motion blur, matching shutter speed to frame rates, and stopping 50Hz room flicker."
+                desc: "Explore cinematic motion blur, matching shutter speed to frame rates, and stopping room light flicker."
             },
             5: {
                 title: "Canon DSLR Video Setup & Focus Techniques",
@@ -919,7 +920,7 @@
             const certId = 'CAM-' + Math.floor(100000 + Math.random() * 900000);
             document.getElementById('cert-id').textContent = certId;
 
-            // Updated Attainment Levels (Emerging Knowledge, Solid Foundations, Strong Understanding, Experienced Technician)
+            // Attainment Levels (Emerging Knowledge, Solid Foundations, Strong Understanding, Experienced Technician)
             const gradeTitle = document.getElementById('cert-grade-title');
             if (percentage >= 85) {
                 gradeTitle.textContent = "Experienced Technician";
