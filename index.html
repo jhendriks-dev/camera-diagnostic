@@ -119,6 +119,13 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </form>
+
+            <div class="mt-4 pt-4 border-t border-slate-700/50 flex justify-center">
+                <button type="button" onclick="openTestModal()" class="text-xs text-slate-400 hover:text-sky-400 transition flex items-center space-x-1.5 cursor-pointer">
+                    <i class="fa-solid fa-flask"></i>
+                    <span class="underline">Quick Test Assessment (Teacher Only)</span>
+                </button>
+            </div>
         </div>
 
         <!-- STEP 2: Interactive Diagnostic Question View -->
@@ -256,6 +263,31 @@
         </div>
 
     </main>
+
+    <!-- Password Protection Modal for Quick Test -->
+    <div id="test-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeTestModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-3">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">Teacher Test Mode</h3>
+            <p class="text-xs text-slate-400 mb-4">Enter password to automatically answer all 30 questions and test Google Sheet logging.</p>
+            
+            <form onsubmit="executeQuickTest(event)" class="space-y-3">
+                <div>
+                    <input type="password" id="test-password-input" placeholder="Enter password" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    <p id="test-password-error" class="hidden text-xs text-rose-400 mt-1">Incorrect password. Please try again.</p>
+                </div>
+                <div class="flex space-x-2 pt-1">
+                    <button type="button" onclick="closeTestModal()" class="w-1/2 py-2 px-3 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-700 text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="w-1/2 py-2 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold shadow">Run Test</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 bg-slate-950 text-slate-500 text-xs text-center">
@@ -1067,6 +1099,43 @@
             startTime = null;
             document.getElementById('results-card').classList.add('hidden');
             document.getElementById('intro-card').classList.remove('hidden');
+        }
+
+        function openTestModal() {
+            document.getElementById('test-password-input').value = '';
+            document.getElementById('test-password-error').classList.add('hidden');
+            document.getElementById('test-modal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('test-password-input').focus(), 100);
+        }
+
+        function closeTestModal() {
+            document.getElementById('test-modal').classList.add('hidden');
+        }
+
+        function executeQuickTest(e) {
+            e.preventDefault();
+            const inputPwd = document.getElementById('test-password-input').value;
+            if (inputPwd !== 'BRITFMP2026') {
+                document.getElementById('test-password-error').classList.remove('hidden');
+                return;
+            }
+
+            closeTestModal();
+
+            // Set test student metadata
+            studentName = "Test Student";
+            studentGroup = "TEST-CLASS";
+            startTime = Date.now() - 45000; // Simulated 45s run time
+
+            // Randomly select option for all 30 questions
+            questions.forEach(q => {
+                const randomChoice = Math.floor(Math.random() * q.options.length);
+                userAnswers[q.id] = randomChoice;
+            });
+
+            // Transition directly to completion
+            document.getElementById('intro-card').classList.add('hidden');
+            finishAssessment();
         }
     </script>
 </body>
